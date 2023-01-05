@@ -20,6 +20,7 @@ const HeroList: React.FC = () => {
 
     const retrieveHero = () => {
         HeroService.GetAll().then((response: any) => {
+            
             setHero(response.data);
             console.log(response.data);
         });
@@ -61,19 +62,20 @@ const HeroList: React.FC = () => {
                         type="button"
                         onClick={findByName}>Seach
                         </button>
-                    </div>"
+                    </div>
                 </div>
             </div>
             <div className="col-mb-6">
                 <h4>Hero List</h4>
                 <ul className="list-group">
                     {
-                        Hero && Hero.map((hero,index) =>(
-                        <li 
-                        className={"list-group-item" + (index == currentIndex ? "active": "")}
-                        onClick={() => setActiveHero(hero,index)}
-                        key={index}>
-                        </li>
+                        Hero && Array.from(Hero).map((hero,index) =>(
+                            <li 
+                             className={
+                                "list-group-item" + (index == currentIndex ? "active": "")}   
+                             onClick={() => setActiveHero(hero,index)}
+                             key={index}> {hero.Name}
+                            </li>
                         ))
                     }
                 </ul>
@@ -122,10 +124,8 @@ const HeroList: React.FC = () => {
                         className="badge badge-warning"> Edit</Link>
                     </div>
                 ) : (
-                    <div>
-                        <br>
-                            <p>Please Click on a Hero</p>
-                        </br>
+                    <div>    
+                        <p>Please Click on a Hero</p>
                     </div>
                 )}
             </div>

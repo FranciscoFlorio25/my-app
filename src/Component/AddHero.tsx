@@ -72,6 +72,7 @@ const AddHero: React.FC = () => {
           </div>
         ) : (
           <div>
+            <h4>Add a Hero</h4>
             <div className="form-group">
               <label htmlFor="Name">Name</label>
               <input
@@ -81,23 +82,22 @@ const AddHero: React.FC = () => {
                 required
                 value={Hero.Name}
                 onChange={handleInputChange}
-                name="title"
+                name="Namef"
               />
             </div>
   
             <div className="form-group">
-              <label htmlFor="description">Description</label>
+              <label htmlFor="Description">Description</label>
               <input
                 type="text"
                 className="form-control"
-                id="description"
+                id="Description"
                 required
                 value={Hero.Description}
                 onChange={handleInputChange}
-                name="description"
+                name="Description"
               />
             </div>
-
             <div className="form-group">
               <label htmlFor="Publisher">Publisher</label>
               <input
@@ -110,7 +110,6 @@ const AddHero: React.FC = () => {
                 name="Publisher"
               />
             </div>
-
             <div className="form-group">
               <label htmlFor="Age">Age</label>
               <input
@@ -123,7 +122,6 @@ const AddHero: React.FC = () => {
                 name="Age"
               />
             </div>
-
             <div className="form-group">
               <label htmlFor="Powers">Powers</label>
               <input
@@ -157,15 +155,17 @@ const AddHero: React.FC = () => {
                 className="form-control"
                 id="ImgUrl"
                 required
-                value={Hero.Powers}
+                value={Hero.ImgUrl}
                 onChange={handleInputChange}
                 name="ImgUrl"
               />
             </div>
-  
-            <button onClick={saveHero} className="btn btn-success">
-              Submit
-            </button>
+            <div>    
+              <button onClick={saveHero} className="btn btn-success">
+                Submit
+              </button>
+            </div>
+
           </div>
         )}
       </div>

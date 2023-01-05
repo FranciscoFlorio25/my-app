@@ -8,7 +8,7 @@ const GetById = (id: any) =>{
     return http.get<IHero>("/SuperHero/${id}");
 }
 const GetByName = (name: string) => {
-    return http.get<Array<IHero>>("/SuperHero/${name}");
+    return http.get<Array<IHero>>("/SuperHero/Heros/${name}");
 }
 
 const Create = (data: IHero) => {
