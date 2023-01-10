@@ -5,10 +5,10 @@ const GetAll = () =>{
     return http.get<Array<IHero>>("/SuperHero");
 }
 const GetById = (id: any) =>{
-    return http.get<IHero>("/SuperHero/${id}");
+    return http.get<IHero>("/SuperHero/"+id);
 }
 const GetByName = (name: string) => {
-    return http.get<Array<IHero>>("/SuperHero/Heros/${name}");
+    return http.get<Array<IHero>>("/SuperHero/Heros/"+name);
 }
 
 const Create = (data: IHero) => {
@@ -16,11 +16,11 @@ const Create = (data: IHero) => {
 }
 
 const Update= (id: any, data: IHero) => {
-    return http.put<IHero>("/SuperHero/${id}",data);
+    return http.put<IHero>("/SuperHero/"+ id,data);
 };
 
 const Remove = (id: any) => {
-    return http.delete<any>("/SuperHero/${id}");
+    return http.delete<any>("/SuperHero/"+id);
 };
 
 const HeroService = {

@@ -23,8 +23,8 @@ const Hero: React.FC = () =>{
 
     const getHero = (id: string) => {
         HeroService.GetById(id).then((response: any) =>{
-            setCurrentHero(response.data);
-            console.log(response.data);
+            setCurrentHero(response.data.data);
+            console.log(response.data.data);
         });
     };
 
@@ -42,7 +42,7 @@ const Hero: React.FC = () =>{
     const updateHero = () => {
         HeroService.Update(currentHero.Id, currentHero)
         .then((response: any) =>{
-            console.log(response.data);
+            console.log(response.data.data);
             setMessage("The Hero was update updated successfully!");
         });
     };
@@ -50,7 +50,7 @@ const Hero: React.FC = () =>{
     const deleteHero = () => {
         HeroService.Remove(currentHero.Id)
         .then((response: any) => {
-            console.log(response.data);
+            console.log(response.data.data);
             navigate("/Heros");
         });
     };
@@ -105,7 +105,7 @@ const Hero: React.FC = () =>{
                         />
                     </div>
                     <div className="form-group">
-                        <label htmlFor="powers">Powers</label>
+                        <label htmlFor="Powers">Powers</label>
                         <input
                             type="text"
                             className="form-control"
@@ -116,7 +116,7 @@ const Hero: React.FC = () =>{
                         />
                     </div>
                     <div className="form-group">
-                        <label htmlFor="association">Association</label>
+                        <label htmlFor="Association">Association</label>
                         <input
                             type="Text"
                             className="form-control"
@@ -143,9 +143,7 @@ const Hero: React.FC = () =>{
             </div>
         ) : (
             <div>
-                <br>
                     <p>Please click in a hero</p>
-                </br>
             </div>
         )}
     </div>)

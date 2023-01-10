@@ -20,9 +20,8 @@ const HeroList: React.FC = () => {
 
     const retrieveHero = () => {
         HeroService.GetAll().then((response: any) => {
-            
-            setHero(response.data);
-            console.log(response.data);
+            setHero(response.data.data.superHeros);
+            console.log(response.data.data.superHeros);
         });
     };
 
@@ -32,7 +31,7 @@ const HeroList: React.FC = () => {
         setCurrentIndex(-1);
     };
 
-    const setActiveHero = (hero: IHero, index: number) => {
+    const setActiveHero = (hero: IHero, index: number) => {        
         setCurrentHero(hero);
         setCurrentIndex(index);
     }
@@ -40,10 +39,10 @@ const HeroList: React.FC = () => {
     const findByName = () => {
         HeroService.GetByName(searchName)
         .then((response: any) => {
-            setHero(response.data);
+            setHero(response.data.data.superHeros);
             setCurrentHero(null);
             setCurrentIndex(-1);
-            console.log(response.data);
+            console.log(response.data.data.superHeros);
         })
     };
 
@@ -72,7 +71,7 @@ const HeroList: React.FC = () => {
                         Hero && Array.from(Hero).map((hero,index) =>(
                             <li 
                              className={
-                                "list-group-item" + (index == currentIndex ? "active": "")}   
+                                "list-group-item" + (index === currentIndex ? "active": "")}   
                              onClick={() => setActiveHero(hero,index)}
                              key={index}> {hero.Name}
                             </li>
@@ -91,7 +90,7 @@ const HeroList: React.FC = () => {
                             {currentHero.Name}
                         </div>
                         <div>
-                            <image href={currentHero.ImgUrl}/>
+                            <img src={currentHero.ImgUrl} alt = "Hero"/>
                         </div>
                         <div>
                             <label>

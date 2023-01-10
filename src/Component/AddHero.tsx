@@ -82,7 +82,7 @@ const AddHero: React.FC = () => {
                 required
                 value={Hero.Name}
                 onChange={handleInputChange}
-                name="Namef"
+                name="Name"
               />
             </div>
   
